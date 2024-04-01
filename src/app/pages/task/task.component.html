@@ -54,7 +54,8 @@
         <div class="body-task">
           <div class="progress-process" (click)="detail(item.id)">
             <div class="process"><span class="txt-gray">Estado:</span> <span class="status" [style]="'background-color:'+item.status.color+'50'"> {{item.status.name}}</span> </div>
-            <div class="process"><span class="txt-gray">Prioridad:</span> <span class="status" [style]="'background-color:'+item.priority.color+'50'"> {{item.priority.name}}</span> </div>
+            <div class="process"><span class="txt-gray">Prioridad:</span> <span class="status" [style]="'background-color:'+item.priority.color+'50'"> {{item.priority.name}}</span></div>
+            <div class="process"><span class="txt-gray">F. Vencimiento:</span> <span> {{item.due_date| date: 'dd/MM/yyyy'}}</span></div>
           </div>
         </div>
       </div>

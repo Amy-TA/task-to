@@ -34,11 +34,6 @@ export class MLabelsComponent implements OnInit {
   save(){
     let obj: ITask = this.lst.find((tsk: { id: any; }) => tsk.id == this.item.id);
 
-    obj.title = this.item.title;
-    obj.due_date = this.item.due_date;
-    obj.priority = this.item.priority;
-    obj.status = this.item.status;
-    obj.description = this.item.description;
     obj.lst_labels = this.lst_labels_select.filter(l => l.selected != false);
 
     localStorage.setItem('lstTasks', JSON.stringify(this.lst));

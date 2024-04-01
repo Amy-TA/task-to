@@ -59,7 +59,7 @@ export class MTaskComponent implements OnInit {
       status: status,
       description: this.frmTask.get('description')?.value,
       creation_date: new Date().toISOString().slice(0, 10),
-      lst_labels: this.item.lst_labels
+      lst_labels: []
     }
 
     this.lst.push(obj);
@@ -87,7 +87,7 @@ export class MTaskComponent implements OnInit {
     obj.priority = priority;
     obj.status = status;
     obj.description = this.frmTask.get('description')?.value,
-    obj.lst_labels = [];
+    obj.lst_labels = this.item.lst_labels;
 
     localStorage.setItem('lstTasks', JSON.stringify(this.lst));
     this.activeModal.close('Success');

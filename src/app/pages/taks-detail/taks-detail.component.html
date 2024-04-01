@@ -5,7 +5,7 @@
       <span class="txt-primary" *ngIf="item">#{{item.id}}</span>
       <form action="" [formGroup]="frmTask">
         <div class="box-input">
-          <input type="text" name="" id="" formControlName="title">
+          <input type="text" name="" id="" formControlName="title" [readOnly]="!edit">
         </div>
       </form>
     </h2>
@@ -28,7 +28,7 @@
     <form action="" [formGroup]="frmTask">
       <div class="box-input">
         <label for="">Descripción</label>
-        <textarea name="" id="" cols="30" rows="15" formControlName="description">
+        <textarea name="" id="" cols="30" rows="15" formControlName="description" [readOnly]="!edit">
   
         </textarea>
       </div>
@@ -40,7 +40,7 @@
     
       <div class="box-input" *ngIf="!edit">
         <label for="">Prioridad</label>
-        <input type="text" name="" id="" [value]="item.priority.name" [readOnly]="true">
+        <input type="text" name="" id="" [value]="item.priority.name" [readOnly]="!edit">
       </div>
 
       <div class="box-input" *ngIf="edit">
@@ -54,7 +54,7 @@
 
       <div class="box-input" *ngIf="!edit">
         <label for="">Estado</label>
-        <input type="text" name="" id="" [value]="item.status.name" [readOnly]="true">
+        <input type="text" name="" id="" [value]="item.status.name" [readOnly]="!edit">
       </div>
   
       <div class="box-input" *ngIf="edit">

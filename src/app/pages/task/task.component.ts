@@ -173,6 +173,10 @@ export class TaskComponent implements OnInit {
         if (result) {
           this.lst_tasks = JSON.parse(localStorage.getItem('lstTasks') || '[]');
           this.lst_tasks_filter = this.lst_tasks;
+
+          this.frmFilter.get('status')?.patchValue(0);
+          this.frmFilter.get('priority')?.patchValue(0);
+          this.frmFilter.get('due_date')?.patchValue(0);
         }
       },
       (reason) => {
@@ -231,6 +235,7 @@ export class TaskComponent implements OnInit {
       if (result.isConfirmed) {
         this.lst_tasks.splice(index, 1);
         localStorage.setItem('lstTasks', JSON.stringify(this.lst_tasks));
+        this.lst_tasks_filter = this.lst_tasks;
         Swal.fire({
           position: "top-end",
           icon: "success",

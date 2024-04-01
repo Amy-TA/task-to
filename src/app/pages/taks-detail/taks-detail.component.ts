@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ITask } from 'src/app/domain/models/task.model';
+import { IPriority, IStatus, ITask } from 'src/app/domain/models/task.model';
+import { Priority, Status } from 'src/app/shared/object-data';
 import Swal from 'sweetalert2';
 import { MLabelsComponent } from '../m-labels/m-labels.component';
 
@@ -79,8 +80,17 @@ export class TaksDetailComponent implements OnInit {
     }
     else{
       if(this.item){
-        let obj: ITask = this.lst.find((tsk: { id: any; }) => tsk.id === this.item?.id);
+        let obj: ITask = this.lst.find((tsk: { id: any; }) => tsk.id == this.item?.id);
 
+        let priority: IPriority =  JSON.parse(Priority[this.frmTask.get('priority_id')?.value || 1]);
+        let status: IStatus = JSON.parse(Status[this.frmTask.get('status_id')?.value || 1]);
+
+        
+        obj.title = this.frmTask.get('title')?.value || '';
+        obj.due_date = this.frmTask.get('due_date')?.value;
+        obj.priority = priority;
+        obj.status = status;
+        obj.description = this.frmTask.get('description')?.value,
         obj.lst_labels = this.item.lst_labels;
     
         localStorage.setItem('lstTasks', JSON.stringify(this.lst));
