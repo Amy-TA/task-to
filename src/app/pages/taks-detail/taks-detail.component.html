@@ -15,11 +15,14 @@
   <div class="body" > 
     <div class="d-end"><span class="txt-gray">Fecha de creación: &nbsp;</span> <span>{{item.creation_date | date: 'dd/MM/yyyy'}}</span></div>
 
-    <div class="labels">
-      <span class="material-symbols-outlined" (click)="addLabel()">add_circle</span>
-      <div class="content-labels">
-        <div class="label" *ngFor="let item of item?.lst_labels" [style]="'background-color:'+ item.color+'50'">
-          <span>{{item.name}}</span>
+    <div class="box-input">
+      <label for="">Etiquetas</label>
+      <div class="labels">
+        <span class="material-symbols-outlined" (click)="addLabel()">add_circle</span>
+        <div class="content-labels">
+          <div class="label" *ngFor="let item of item?.lst_labels" [style]="'background-color:'+ item.color+'50'">
+            <span>{{item.name}}</span>
+          </div>
         </div>
       </div>
     </div>
