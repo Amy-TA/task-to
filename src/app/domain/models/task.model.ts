@@ -1,23 +1,29 @@
 export interface ITask{
   id: number;
   title: string;
-  due_date: Date;
-  priority_id: number;
+  due_date: string;
+  priority: IPriority;
+  status: IStatus;
   description: string;
-  creation_date: Date;
-  lst_labels: Labels[]
+  creation_date: string;
+  lst_labels: ILabels[]
 }
 
-interface Labels{
+export interface ILabels{
   id: number;
   name: string;
   color: string;
-  description: string;
+  selected?: boolean;
 }
 
-interface Priority{
+export interface IPriority{
   id: number;
   name: string;
   color: string;
-  description: string;
+}
+
+export interface IStatus{
+  id: number;
+  name: string;
+  color: string;
 }

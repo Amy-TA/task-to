@@ -1,26 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-
-const childRoutes: Routes = [
-  {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
-  },
- 
-];
+import { TaksDetailComponent } from './pages/taks-detail/taks-detail.component';
+import { TaskComponent } from './pages/task/task.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   component: HomeComponent,
-  // },
   {
     path: '',
-    component: HomeComponent,
-    // canActivate: [AuthGaurd],
-    children: childRoutes
+    redirectTo: '/task',
+    pathMatch: 'full'
+  },
+  {
+    path: 'task',
+    component: TaskComponent,
+  },
+  { 
+    path: 'task/:id', 
+    component: TaksDetailComponent 
   },
 ];
 

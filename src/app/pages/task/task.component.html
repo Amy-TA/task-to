@@ -1,1 +1,63 @@
-<p>task works!</p>
+<div class="content">
+  <div class="header">
+    <h2>Mis tareas</h2>
+  </div>
+
+
+  <div class="body">
+    <form action="" [formGroup]="frmFilter" class="Filters">
+      <div class="box-input">
+        <label for="">Estado</label>
+        <select name="" id="" formControlName="status" (change)="filterStatus()">
+          <option [value]="0" selected>Seleccionar</option>
+          <option [value]="1">Pendiente a Finalizado</option>
+          <option [value]="2">Finalizado a Pendiente</option>
+        </select>
+      </div>
+
+      <div class="box-input">
+        <label for="">Prioridad</label>
+        <select name="" id="" formControlName="priority" (change)="filterPriority()">
+          <option [value]="0" selected>Seleccionar</option>
+          <option [value]="1">Menor a mayor</option>
+          <option [value]="2">Mayor a menor</option>
+        </select>
+      </div>
+
+      <div class="box-input">
+        <label for="">Fecha de vencimiento</label>
+        <select name="" id="" formControlName="due_date" (change)="filterDueDate()">
+          <option [value]="0" selected>Seleccionar</option>
+          <option [value]="1">Menor a mayor</option>
+          <option [value]="2">Mayor a menor</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" (click)="openDialog()">Agregar</button>
+    </form>
+
+    <div class="list-tasks">
+      <div class="card" *ngFor="let item of lst_tasks_filter; let i = index">
+        <div class="title-task">
+          <h6 (click)="detail(item.id)"><span class="txt-primary">#{{item.id}}</span>  {{item.title}}</h6>
+          <div class="content-options" #optionsContainer>
+            <span class="material-symbols-outlined" (click)="openOption(i)">more_vert</span>
+    
+            <div class="div options" *ngIf="view_options[i]">
+              <ul>
+                <li (click)="openDialog(item)">Editar</li>
+                <li (click)="remove(i)">Eliminar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="body-task">
+          <div class="progress-process" (click)="detail(item.id)">
+            <div class="process"><span class="txt-gray">Estado:</span> <span class="status" [style]="'background-color:'+item.status.color+'50'"> {{item.status.name}}</span> </div>
+            <div class="process"><span class="txt-gray">Prioridad:</span> <span class="status" [style]="'background-color:'+item.priority.color+'50'"> {{item.priority.name}}</span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

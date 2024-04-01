@@ -1,0 +1,26 @@
+textarea{ resize: none; }
+.material-symbols-outlined{ cursor: pointer; }
+
+h2{
+  gap: .3rem;
+  display: flex;
+  align-items: center;
+  
+  form{ width: 100%;}
+}
+
+.labels{
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+
+  .content-labels{
+    display: flex;
+    gap: .5rem;
+
+    .label{
+      padding: .5rem;
+      border-radius: 15px;
+    }
+  }
+}

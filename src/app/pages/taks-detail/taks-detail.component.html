@@ -1,0 +1,78 @@
+<div class="content" *ngIf="item">
+  <div class="header">
+    <h2>
+      <span class="material-symbols-outlined" (click)="back()">arrow_back</span> 
+      <span class="txt-primary" *ngIf="item">#{{item.id}}</span>
+      <form action="" [formGroup]="frmTask">
+        <div class="box-input">
+          <input type="text" name="" id="" formControlName="title">
+        </div>
+      </form>
+    </h2>
+  </div>
+
+
+  <div class="body" > 
+    <div class="d-end"><span class="txt-gray">Fecha de creación: &nbsp;</span> <span>{{item.creation_date | date: 'dd/MM/yyyy'}}</span></div>
+
+    <div class="labels">
+      <span class="material-symbols-outlined" (click)="addLabel()">add_circle</span>
+      <div class="content-labels">
+        <div class="label" *ngFor="let item of item?.lst_labels" [style]="'background-color:'+ item.color+'50'">
+          <span>{{item.name}}</span>
+        </div>
+      </div>
+    </div>
+
+
+    <form action="" [formGroup]="frmTask">
+      <div class="box-input">
+        <label for="">Descripción</label>
+        <textarea name="" id="" cols="30" rows="15" formControlName="description">
+  
+        </textarea>
+      </div>
+    
+      <div class="box-input">
+        <label for="">Fecha de vencimiento</label>
+        <input type="date" name="" id="" formControlName="due_date">
+      </div>
+    
+      <div class="box-input" *ngIf="!edit">
+        <label for="">Prioridad</label>
+        <input type="text" name="" id="" [value]="item.priority.name" [readOnly]="true">
+      </div>
+
+      <div class="box-input" *ngIf="edit">
+        <label for="">Prioridad</label>
+        <select name="" id="" formControlName="priority_id">
+          <option [value]="1" selected>Baja</option>
+          <option [value]="2">Media</option>
+          <option [value]="3">Alta</option>
+        </select>
+      </div>
+
+      <div class="box-input" *ngIf="!edit">
+        <label for="">Estado</label>
+        <input type="text" name="" id="" [value]="item.status.name" [readOnly]="true">
+      </div>
+  
+      <div class="box-input" *ngIf="edit">
+        <label for="">Estado</label>
+        <select name="" id="" formControlName="status_id">
+          <option [value]="1" selected>Pendiente</option>
+          <option [value]="2">En curso</option>
+          <option [value]="3">Finalizada</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="d-end">
+      <div class="options-buttons">
+        <button (click)="back()">Regresar</button>
+        <button class="btn-primary" *ngIf="!edit" (click)="put(true)" >Editar</button>
+        <button class="btn-primary" *ngIf="edit" (click)="put(false);">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

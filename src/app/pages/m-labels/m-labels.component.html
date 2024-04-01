@@ -1,0 +1,29 @@
+<div class="modal-header">
+  <h4>Etiquetas</h4>
+
+  <span class="material-symbols-outlined" (click)="close()">close</span>
+</div>
+<div class="modal-body">
+  <div>
+    <div class="labels" *ngIf="lst_labels.length > 0">
+      <div class="label" *ngFor="let item of lst_labels_select">
+        <h6>{{item.name}}</h6>
+        <label class="custom-checkbox">
+          <input type="checkbox" id="" name="" [checked]="item.selected" (change)="onCheckboxChange($event, item)">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+
+    <div *ngIf="lst_labels.length == 0">
+      <span>No hay etiquetas disponibles</span>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <div class="options-buttons">
+    <button (click)="close()">Cancelar</button>
+    <button class="btn-primary" (click)="save()">Guardar</button>
+  </div>
+</div>

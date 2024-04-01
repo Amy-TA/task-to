@@ -1,0 +1,104 @@
+.list-tasks{
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card{
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .title-task{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    h6{
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+      overflow: hidden;
+
+      cursor: pointer;
+    }
+
+    .content-options{
+      position: relative;
+      .material-symbols-outlined{ 
+        cursor: pointer; 
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 25px;
+        height: 25px;
+        background-color: white;
+  
+        &:hover{
+          filter: brightness(90%);
+        }
+      }
+
+      .options{
+        position: absolute;
+        border-radius: 0.385rem;
+        background-color: white;
+        z-index: 8;
+        box-shadow: 10px 10px 14px -9px rgba(0, 0, 0, 0.13);
+        overflow: hidden;
+        right: 0px;
+        ul{
+          list-style: none;
+          padding: 0px;
+          margin: 0px;
+          li{
+            padding: 0.2rem 0.4rem;
+            background-color: white;
+            &:hover{
+              cursor: pointer;
+              filter: brightness(90%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .body-task{
+    cursor: default;
+    .progress-process{
+      gap: .5rem;
+      display: flex;
+      flex-direction: column;
+  
+      .process{
+        display: flex;
+        gap: .3rem;
+        .status{
+          border-radius: 50px;
+          padding: .1rem .5rem;
+        }
+      }
+    }
+  }
+}
+
+.Filters{
+  gap: 1rem;
+  display: grid;
+  align-items: end;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.content{
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .material-symbols-outlined{ 
+      cursor: pointer; 
+    }
+  }
+}

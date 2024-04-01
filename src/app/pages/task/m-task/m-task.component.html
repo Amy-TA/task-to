@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <h4>{{ item ? 'Editar ': 'Agregar '}} Tarea</h4>
+
+  <span class="material-symbols-outlined" (click)="close()">close</span>
+</div>
+<div class="modal-body">
+  <form action="" [formGroup]="frmTask">
+    <div class="box-input">
+      <label for="">Título</label>
+      <input type="text" name="" id="" formControlName="title">
+    </div>
+  
+    <div class="box-input">
+      <label for="">Descripción</label>
+      <textarea name="" id="" cols="30" rows="5" formControlName="description">
+
+      </textarea>
+    </div>
+  
+    <div class="box-input">
+      <label for="">Fecha de vencimiento</label>
+      <input type="date" name="" id="" formControlName="due_date">
+    </div>
+  
+    <div class="box-input">
+      <label for="">Prioridad</label>
+      <select name="" id="" formControlName="priority_id">
+        <option [value]="1" selected>Baja</option>
+        <option [value]="2">Media</option>
+        <option [value]="3">Alta</option>
+      </select>
+    </div>
+
+    <div class="box-input" *ngIf="item">
+      <label for="">Estado</label>
+      <select name="" id="" formControlName="status_id">
+        <option [value]="1" selected>Pendiente</option>
+        <option [value]="2">En curso</option>
+        <option [value]="3">Finalizada</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <div class="options-buttons">
+    <button (click)="close()">Cancelar</button>
+    <button class="btn-primary" (click)="save()">Guardar</button>
+  </div>
+</div>
